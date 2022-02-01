@@ -10,6 +10,7 @@
 	<title>AKASH K</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="icon" href="images/Title icon.jpeg" type="image/icon type">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	
 </head>
 <body>
@@ -178,8 +179,8 @@
 					</div>
 					<div class="footer-info__right">
 						<h5>Get In Touch</h5>
-						<p class="footer-phone">Phone 📱: +91 9961495591</p>
-						<p>Email 📧 : akashmdy000@gmail.com</p>
+						<p class="footer-phone">Phone 📱: <a href="tel:7907662026" style="text-decoration: none; color: white;">+91 7907662026</a></p>
+						<p>Email 📧 : <a href="mailto:akashmdy000@gmail.com" style="text-decoration: none; color: white;">akashmdy000@gmail.com</a></p>
 						<p>Adress 🏠:koyilandy,calicut,kerala</p>
 						<div class="social-icons">
 							<p></p>
@@ -188,7 +189,7 @@
 				</div>
 				<div class="footer-contact-form">
 					<h5>Contact Form</h5>
-					<form class="contact-form" method="POST" id="submit-form" action="https://script.google.com/macros/s/AKfycbwxo-jcwODbXN8QTAbsoRce1n57pIqhgI4BkhGBJSF4qSr3hzx3YOvE067GAO8WE5XAwA/exec" onsubmit="alertFunction()">
+					<form class="contact-form"  id="submit-form" action="">
 						<div class="contact-form__input">
 							<input type="text" name="name" placeholder="Name">
 							<input type="email" name="email" placeholder="Email">
@@ -203,6 +204,30 @@
 				</div>
 			</div>
 		</div>
+
+
+		<script>
+			$("#submit-form").submit((e)=>{
+				e.preventDefault()
+				$.ajax({
+					url:"https://script.google.com/macros/s/AKfycbwxo-jcwODbXN8QTAbsoRce1n57pIqhgI4BkhGBJSF4qSr3hzx3YOvE067GAO8WE5XAwA/exec",
+					data:$("#submit-form").serialize(),
+					method:"post",
+					success:function (response){
+						alert("Your order placed successfully! You will get a Confirmation Call soon📞")
+						window.location.reload()
+						window.location.href="index.html"
+					},
+					error:function (err){
+						alert("Something Error")
+		
+					}
+				})
+			})
+		</script>
+
+
+
 		<div class="footer-bottom">
 			<div class="site-container footer-bottom-inner">
 				<p>© 2021 Akash K | Design by <a href="" target="_blank">Akash K</a> | All rights Reserved.</p>
@@ -223,16 +248,13 @@
 	<script src="js/slick.min.js"></script>
 	<script src="js/main.js"></script>
 
-	<script>
-		function alertFunction() {
-		  alert("Thank you😊");
-		}
-	</script>
+	
+	
 		
 	
 
 	
-	
+		
 
 </body>
 </html>
